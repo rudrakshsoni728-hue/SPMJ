@@ -1,55 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SPMJ — Suraj Prakash Mangilal Jewellers</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #090706;
-            color: #f4e7c5;
-            font-family: Georgia, serif;
-            min-height: 200vh;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 100px);
-            letter-spacing: 12px;
-            font-weight: 400;
-        }
-
-        .hero p {
-            margin-top: 20px;
-            letter-spacing: 4px;
-            opacity: 0.7;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080605">
+<title>SPMJ — Suraj Prakash Mangilal Jewellers</title>
+<meta name="description" content="Suraj Prakash Mangilal Jewellers — heritage, craftsmanship and contemporary luxury from Jodhpur.">
+<style>
+:root{
+  --bg:#080605; --ink:#f7e8bd; --gold:#d7ae5b; --gold2:#f1d48a;
+  --paper:#d9bd83; --paper2:#b99559; --wine:#32130f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+button{font:inherit}
+.hero{height:100vh;min-height:680px;position:relative;display:grid;place-items:center;overflow:hidden;background:
+ radial-gradient(circle at 50% 46%,rgba(218,173,81,.13),transparent 22%),
+ radial-gradient(circle at 50% 100%,rgba(121,47,26,.18),transparent 45%),
+ #080605}
+.noise{position:absolute;inset:0;opacity:.09;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.hero-inner{text-align:center;position:relative;z-index:2;animation:rise 1.6s cubic-bezier(.2,.8,.2,1) both}
+.monogram{width:92px;height:92px;margin:0 auto 28px;border:1px solid rgba(241,212,138,.65);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 55px rgba(215,174,91,.12),inset 0 0 30px rgba(215,174,91,.05)}
+.monogram span{font-size:25px;letter-spacing:3px;color:var(--gold2)}
+.hero h1{font-size:clamp(58px,10vw,132px);font-weight:400;letter-spacing:.18em;margin-left:.18em}
+.hero p{margin-top:19px;font-size:clamp(11px,1.5vw,16px);letter-spacing:.42em;opacity:.7}
+.enter{margin-top:58px;color:var(--gold2);background:transparent;border:1px solid rgba(215,174,91,.45);padding:14px 28px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:.35s}
+.enter:hover{background:var(--gold);color:#17100b;box-shadow:0 0 35px rgba(215,174,91,.2)}
+.scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;opacity:.45}
+.scroll:after{content:"";display:block;width:1px;height:38px;margin:10px auto 0;background:linear-gradient(var(--gold),transparent)}
+#experience{position:relative;min-height:260vh;background:linear-gradient(#100b08,#080605 25%,#0d0907)}
+.reveal-stage{height:170vh;position:relative}
+.reveal-sticky{height:100vh;position:sticky;top:0;overflow:hidden;display:grid;place-items:center}
+.collection{position:absolute;inset:0;display:grid;place-items:center;padding:50px 7vw;background:
+ radial-gradient(circle at 50% 46%,rgba(215,174,91,.13),transparent 28%),
+ linear-gradient(145deg,#0c0907,#17100b 55%,#080605)}
+.collection-content{width:min(1050px,100%);text-align:center}
+.eyebrow{font-size:11px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.collection h2{font-size:clamp(35px,5vw,70px);font-weight:400;letter-spacing:.06em}
+.collection-sub{max-width:600px;margin:18px auto 45px;line-height:1.8;color:#d8c69e;opacity:.8}
+.jewels{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+.jewel-card{width:210px;padding:20px 15px 18px;border:1px solid rgba(215,174,91,.2);background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(0,0,0,.18));backdrop-filter:blur(5px)}
+.jewel{height:145px;display:grid;place-items:center}
+.jewel svg{width:125px;filter:drop-shadow(0 12px 20px rgba(0,0,0,.55))}
+.jewel-card h3{font-size:15px;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
+.jewel-card small{display:block;margin-top:8px;opacity:.55;letter-spacing:.12em}
+.parchment{position:absolute;z-index:5;inset:0;pointer-events:none;display:flex;justify-content:center;align-items:center;perspective:1100px}
+.paper-half{position:absolute;top:5%;bottom:5%;width:51%;background:
+ linear-gradient(90deg,rgba(72,40,13,.12),transparent 13%,transparent 86%,rgba(62,34,11,.18)),
+ radial-gradient(circle at 30% 40%,rgba(255,245,204,.16),transparent 32%),
+ repeating-linear-gradient(0deg,rgba(77,42,10,.04) 0 1px,transparent 1px 5px),
+ linear-gradient(105deg,var(--paper),#e5cd9a 50%,var(--paper2));
+ box-shadow:0 18px 55px rgba(0,0,0,.55);transition:none;overflow:hidden}
+.paper-half:before{content:"";position:absolute;inset:0;opacity:.17;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cfilter id='f'%3E%3CfeTurbulence baseFrequency='.04' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.35'/%3E%3C/svg%3E")}
+.paper-left{left:0;transform-origin:left center}
+.paper-right{right:0;transform-origin:right center}
+.paper-text{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#4a2b13;width:75%;pointer-events:none}
+.paper-text .seal{width:70px;height:70px;border:1px solid #745025;border-radius:50%;display:grid;place-items:center;margin:0 auto 25px;font-size:12px;letter-spacing:.15em}
+.paper-text h2{font-size:clamp(34px,6vw,78px);font-weight:400;letter-spacing:.08em}
+.paper-text p{margin-top:13px;font-size:11px;letter-spacing:.35em;text-transform:uppercase}
+.tear{position:absolute;z-index:8;top:4%;bottom:4%;left:50%;width:2px;transform:translateX(-50%);background:linear-gradient(transparent,#4d2d13 12%,#8e6936 50%,#4d2d13 88%,transparent);opacity:.65}
+.tear-hint{position:absolute;z-index:9;top:50%;left:50%;transform:translate(-50%,-50%);font-size:10px;letter-spacing:.25em;color:#4a2b13;text-transform:uppercase;transition:opacity .4s}
+.story{max-width:900px;margin:0 auto;padding:130px 25px 170px;text-align:center}
+.story h2{font-weight:400;font-size:clamp(32px,5vw,60px);letter-spacing:.05em}
+.story p{margin:28px auto 0;max-width:700px;line-height:2;color:#c9b895}
+.story .rule{width:70px;height:1px;background:var(--gold);margin:30px auto}
+footer{padding:55px 25px;text-align:center;border-top:1px solid rgba(215,174,91,.13);background:#060504}
+footer strong{font-weight:400;letter-spacing:.2em}
+footer p{font-size:11px;letter-spacing:.18em;opacity:.5;margin-top:13px}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+@media(max-width:700px){
+ .hero{min-height:620px}.hero h1{letter-spacing:.11em}.hero p{letter-spacing:.24em}
+ .paper-half{top:10%;bottom:10%}.paper-text{width:85%}
+ .jewel-card{width:145px}.jewel{height:105px}.jewel svg{width:90px}
+}
+</style>
 </head>
-
 <body>
+<section class="hero" id="top">
+ <div class="noise"></div>
+ <div class="hero-inner">
+  <div class="monogram"><span>SPMJ</span></div>
+  <h1>SPMJ</h1>
+  <p>SURAJ PRAKASH MANGILAL JEWELLERS</p>
+  <button class="enter" onclick="document.querySelector('#experience').scrollIntoView({behavior:'smooth'})">Enter the House</button>
+ </div>
+ <div class="scroll">SCROLL</div>
+</section>
 
-    <section class="hero">
-        <div>
-            <h1>SPMJ</h1>
-            <p>SURAJ PRAKASH MANGILAL JEWELLERS</p>
-        </div>
-    </section>
+<main id="experience">
+ <section class="reveal-stage">
+  <div class="reveal-sticky">
+   <div class="collection">
+    <div class="collection-content">
+     <div class="eyebrow">The House of SPMJ</div>
+     <h2>Jewels with a legacy</h2>
+     <p class="collection-sub">Where traditional Indian craftsmanship meets a quiet, contemporary expression of luxury.</p>
+     <div class="jewels">
+      <article class="jewel-card"><div class="jewel"><svg viewBox="0 0 160 140" aria-hidden="true"><circle cx="80" cy="76" r="43" fill="none" stroke="#d7ae5b" stroke-width="11"/><path d="M59 33L80 8l21 25-21 17z" fill="#f4df9b" stroke="#d7ae5b" stroke-width="3"/></svg></div><h3>Solitaire</h3><small>DIAMOND COLLECTION</small></article>
+      <article class="jewel-card"><div class="jewel"><svg viewBox="0 0 160 140" aria-hidden="true"><path d="M25 61 Q80 112 135 61" fill="none" stroke="#d7ae5b" stroke-width="9"/><circle cx="80" cy="53" r="27" fill="#f1d48a" stroke="#d7ae5b" stroke-width="4"/><circle cx="80" cy="53" r="12" fill="#fff5d0"/></svg></div><h3>Heritage</h3><small>TIMELESS CRAFT</small></article>
+      <article class="jewel-card"><div class="jewel"><svg viewBox="0 0 160 140" aria-hidden="true"><path d="M18 74 Q80 25 142 74 Q80 123 18 74z" fill="none" stroke="#d7ae5b" stroke-width="7"/><path d="M42 74 Q80 43 118 74 Q80 105 42 74z" fill="none" stroke="#f1d48a" stroke-width="5"/><circle cx="80" cy="74" r="8" fill="#fff5d0"/></svg></div><h3>Bridal</h3><small>INDIAN GRANDEUR</small></article>
+     </div>
+    </div>
+   </div>
+   <div class="parchment" id="parchment">
+    <div class="paper-half paper-left" id="paperLeft"></div>
+    <div class="paper-half paper-right" id="paperRight"></div>
+    <div class="paper-text" id="paperText"><div class="seal">SPMJ</div><h2>Suraj Prakash<br>Mangilal</h2><p>Jewellers · Jodhpur</p></div>
+    <div class="tear" id="tear"></div><div class="tear-hint" id="tearHint">Scroll to unveil</div>
+   </div>
+  </div>
+ </section>
 
+ <section class="story">
+  <div class="eyebrow">About the House</div>
+  <h2>A story written in gold</h2>
+  <div class="rule"></div>
+  <p>SPMJ — Suraj Prakash Mangilal Jewellers — brings together heritage, artistry and modern elegance. Each creation is designed to carry the character of its craft and become part of a story that lasts beyond generations.</p>
+ </section>
+</main>
+
+<footer>
+ <strong>SURAJ PRAKASH MANGILAL JEWELLERS</strong>
+ <p>SUNARO KA BASS · JODHPUR · RAJASTHAN</p>
+</footer>
+
+<script>
+const left=document.getElementById('paperLeft');
+const right=document.getElementById('paperRight');
+const text=document.getElementById('paperText');
+const hint=document.getElementById('tearHint');
+const stage=document.querySelector('.reveal-stage');
+
+function reveal(){
+ const rect=stage.getBoundingClientRect();
+ const total=stage.offsetHeight-innerHeight;
+ const p=Math.max(0,Math.min(1,-rect.top/Math.max(total,1)));
+ const eased=p*p*(3-2*p);
+ const spread=52 + eased*52;
+ const lift=eased*3;
+ left.style.transform='translateX('+(-eased*105)+'%) rotateY('+(-lift)+'deg) rotateZ('+(-eased*1.2)+'deg)';
+ right.style.transform='translateX('+(eased*105)+'%) rotateY('+(lift)+'deg) rotateZ('+(eased*1.2)+'deg)';
+ left.style.width=spread+'%'; right.style.width=spread+'%';
+ text.style.opacity=Math.max(0,1-eased*3);
+ hint.style.opacity=Math.max(0,1-eased*4);
+}
+window.addEventListener('scroll',reveal,{passive:true});
+window.addEventListener('resize',reveal);
+reveal();
+</script>
 </body>
 </html>
