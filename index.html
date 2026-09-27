@@ -185,17 +185,6 @@ body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(
   <div class="scroll-cue">Scroll to enter the story<span></span></div>
 </section>
 
-<section class="story" id="about">
- <div class="story-stage">
-   <div class="reveal-jewel"><div class="disc"></div><div class="gem2"></div></div>
-   <div class="story-copy"><div class="eyebrow">The House · Since 19—</div><h2>A story hidden<br><em>inside the craft.</em></h2><p>Keep scrolling. The heritage layer opens to reveal what lies beneath.</p></div>
-   <div class="tear-paper">
-     <div class="tear-half tear-l"></div><div class="tear-half tear-r"></div><div class="tear-center"></div>
-     <div class="tear-title"><div class="small">SPMJ · OUR HERITAGE</div><h3>Made for generations.</h3><div class="small">SCROLL TO REVEAL</div></div>
-   </div>
- </div>
-</section>
-
 <section class="collection" id="collections">
  <div class="collection-head"><div><div class="eyebrow">The SPMJ Edit</div><h2>Signature forms.</h2></div><p>Three visual worlds for the house: refined diamonds, heritage gold and modern bridal expression.</p></div>
  <div class="cards">
@@ -210,9 +199,6 @@ body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(
 <script>
 let entered=false;
 function enterHouse(){if(entered)return;entered=true;document.getElementById('gate').classList.add('open');setTimeout(()=>{document.body.classList.add('entered');document.getElementById('site').scrollIntoView({behavior:'smooth'});},1500)}
-const story=document.querySelector('.story'),tl=document.querySelector('.tear-l'),tr=document.querySelector('.tear-r'),tt=document.querySelector('.tear-title'),sj=document.querySelector('.reveal-jewel'),stage=document.querySelector('.jewel-stage');
-function animateStory(){if(!story)return;const rect=story.getBoundingClientRect(),range=story.offsetHeight-innerHeight,p=Math.max(0,Math.min(1,-rect.top/Math.max(range,1))),e=p*p*(3-2*p);tl.style.transform='translateX('+(-e*108)+'%) rotateY('+(-e*7)+'deg)';tr.style.transform='translateX('+(e*108)+'%) rotateY('+(e*7)+'deg)';tt.style.opacity=1-e;tt.style.transform='translate(-50%,-50%) scale('+(1-e*.18)+')';sj.style.transform='translate(-50%,-50%) scale('+(0.55+e*.55)+') rotateZ('+(e*12)+'deg)';sj.style.opacity=.12+e*.88}
-window.addEventListener('scroll',animateStory,{passive:true});animateStory();
 document.addEventListener('pointermove',e=>{if(!stage)return;const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);stage.style.transform='translate3d('+x*12+'px,'+y*8+'px,0) rotateY('+x*2+'deg) rotateX('+(-y*1.5)+'deg)'});
 </script>
 </body>
