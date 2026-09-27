@@ -6,7 +6,7 @@
 <style>
 :root{--black:#080605;--wine:#260806;--gold:#d6aa50;--cream:#f4e5bd;--paper:#d5b879}
 *{box-sizing:border-box;margin:0;padding:0}html{background:var(--black);scroll-behavior:smooth}body{background:var(--black);color:var(--cream);font-family:Georgia,serif;overflow-x:hidden}
-#gate{height:100svh;min-height:650px;background:radial-gradient(circle at 50% 45%,#4b1710 0,#210805 35%,#060403 78%);display:grid;place-items:center;position:relative;overflow:hidden;cursor:pointer;perspective:1600px}
+#gate{display:none!important;height:100svh;min-height:650px;background:radial-gradient(circle at 50% 45%,#4b1710 0,#210805 35%,#060403 78%);display:grid;place-items:center;position:relative;overflow:hidden;cursor:pointer;perspective:1600px}
 #gate:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0,rgba(0,0,0,.4) 55%,#030202 100%);z-index:4;pointer-events:none}
 .gate-glow{position:absolute;width:42vw;height:70vh;background:#d5a84d;filter:blur(90px);opacity:.12;border-radius:50%;z-index:0}
 .gate-frame{position:absolute;width:min(760px,88vw);height:min(880px,92vh);border:3px solid #9c6e27;box-shadow:0 0 0 10px #160906,0 0 0 13px #6d461b,0 0 70px #000;z-index:2}
@@ -23,8 +23,8 @@
 .enter-hint{margin-top:25px;color:#e4c276;letter-spacing:.35em;font-size:10px;text-transform:uppercase;opacity:.8;animation:pulse 2.2s infinite}
 .corner{position:absolute;z-index:5;color:#b98a3d;font-size:28px;opacity:.7}.c1{top:6%;left:5%}.c2{top:6%;right:5%;transform:scaleX(-1)}.c3{bottom:6%;left:5%;transform:scaleY(-1)}.c4{bottom:6%;right:5%;transform:scale(-1)}
 @keyframes pulse{50%{opacity:.3}}
-#site{opacity:0;transform:scale(1.02);pointer-events:none;background:#090706}
-body.entered #site{opacity:1;transform:none;pointer-events:auto}
+#site{opacity:1;transform:none;pointer-events:auto;background:#090706}
+
 .hero3d{height:100vh;min-height:650px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 48%,rgba(214,170,80,.18),transparent 22%),linear-gradient(135deg,#110807,#050403)}
 .hero3d .halo{position:absolute;width:55vw;height:55vw;border-radius:50%;border:1px solid rgba(214,170,80,.22);box-shadow:0 0 100px rgba(214,170,80,.12),inset 0 0 100px rgba(214,170,80,.05);animation:spin 22s linear infinite}
 .hero3d .halo:before,.hero3d .halo:after{content:"";position:absolute;inset:9%;border:1px solid rgba(214,170,80,.13);border-radius:50%;transform:rotate(35deg)}
